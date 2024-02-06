@@ -28,10 +28,16 @@ def main():
     # on different commands - answer in Telegram
     dispatcher.add_handler(CommandHandler("add", add))
     dispatcher.add_handler(CommandHandler("help", help_command))
+    dispatcher.add_handler(CommandHandler("hello", hello))
     dispatcher.add_handler(chatgpt_handler)
     # To start the bot:
     updater.start_polling()
     updater.idle()
+
+def hello(update: Update, context: CallbackContext) -> None:
+    logging.info(context.args[0])
+    name = context.args[0]
+    update.message.reply_text('Good day,' + name + '!')
 # def echo(update, context):
 #     reply_message = update.message.text.upper()
 #     logging.info("Update: " + str(update))

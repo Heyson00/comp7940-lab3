@@ -1,4 +1,4 @@
-name: Fly Deploy
+name: heyson-chatbot
 on:
  push:
     branches: 
